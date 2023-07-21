@@ -7,54 +7,44 @@ const TopHeadlines = () => {
   const [ headlines, setHeadlines ] = useState({});
   const [ articles, setArticles ] = useState([]);
   const [ topFiveArticles, setTopFiveArticles ] = useState([]);
-  const [ topFiveTitles, setTopFiveTitles ] = useState([]);
-  const [ index, setIndex ] = useState(0);
-
-  const fetchHeadline = async () => {
-    let response = await fetch(`${API_ENDPOINT}`);
-    const data = await response.json();
-    console.log(data);
-    setHeadlines(data);
-  };
 
   useEffect(() => {
+    const fetchHeadline = async () => {
+      let response = await fetch(`${API_ENDPOINT}`);
+      const data = await response.json();
+      console.log(data);
+      setHeadlines(data);
+    };
+  
     fetchHeadline();
   },[]);
 
   useEffect(() => {
-    const article = headlines.articles;
-    setArticles(article);
+    setArticles(headlines.articles);
   },[headlines]);
 
   useEffect(() => {
-    const topArticles = articles?.slice(0, 5);
-    setTopFiveArticles(topArticles);
+    setTopFiveArticles(articles?.slice(0, 5));
   },[articles]);
 
   console.log(topFiveArticles);
 
-  useEffect(() => {
-    const titles = topFiveArticles?.forEach((object) =>
-      object = object.title
-    );
-    setTopFiveTitles(titles);
-  },[topFiveArticles, index]);
-
-  console.log(topFiveTitles);
-  // trying to save only titles of top 5 headlines...
-
   return (
     <>
       <h1>Top Headlines</h1>
-      {/* <div>
-        {topFive[index].title.map((item, index) => {
-          return (
-            <p key={index}>{item}</p>
-          );            
-        })}
-      </div> */}
+      <div>
+        <h3>
+          {topFiveArticles[0]?.title}
+        </h3>
+        <p>
+          {topFiveArticles[0]?.source?.name}
+        </p>
+      </div>
+
     </>
   );
 };
 
 export default TopHeadlines;
+
+// same issue where undefined until i hide and unhide return statement...
