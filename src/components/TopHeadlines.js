@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Headline from "./Headline";
 
 const API_ENDPOINT = `https://newsapi.org/v2/top-headlines?category=general&language=en&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`;
 //const API_ENDPOINT = "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=238c3b821383439bab3fee68b1f5e91b";
@@ -20,7 +21,7 @@ const TopHeadlines = () => {
   },[]);
 
   useEffect(() => {
-    setArticles(headlines.articles);
+    setArticles(headlines?.articles);
   },[headlines]);
 
   useEffect(() => {
@@ -33,12 +34,7 @@ const TopHeadlines = () => {
     <>
       <h1>Top Headlines</h1>
       <div>
-        <h3>
-          {topFiveArticles[0]?.title}
-        </h3>
-        <p>
-          {topFiveArticles[0]?.source?.name}
-        </p>
+        <Headline topFiveArticles={topFiveArticles} />
       </div>
 
     </>
@@ -46,5 +42,3 @@ const TopHeadlines = () => {
 };
 
 export default TopHeadlines;
-
-// same issue where undefined until i hide and unhide return statement...

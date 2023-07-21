@@ -1,4 +1,4 @@
-import TopHeadlines from "./TopHeadlines";
+import TopHeadlines from "./components/TopHeadlines";
 
 function App() {
   return (
