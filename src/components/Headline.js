@@ -7,10 +7,10 @@ const Headline = ({ topFiveArticles }) => {
     <>
       <div>
         <h3>
-          {topFiveArticles[0]?.title}
+          {/* {topFiveArticles} */}
         </h3>
         <p>
-          {topFiveArticles[0]?.source?.name}
+          {/* {topFiveArticles} */}
         </p>
       </div>
 
