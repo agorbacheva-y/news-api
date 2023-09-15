@@ -2,24 +2,24 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Headline from "./Headline";
 
-const API_ENDPOINT = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`;
+const API_ENDPOINT = `https://newsapi.org/v2/top-headlines?language=en&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`;
 
 const TopHeadlines = () => {
   const [ headlines, setHeadlines ] = useState({});
   const [ articles, setArticles ] = useState([]);
   const [ topFiveArticles, setTopFiveArticles ] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchHeadline = async () => {
-  //     let response = await fetch(`${API_ENDPOINT}`);
-  //     const data = await response.json();
-  //     console.log(data);
-  //     setHeadlines(data);
-  //   };
-  //   fetchHeadline();
-  // },[]);
+  useEffect(() => {
+    fetchNews();
+  },[]);
+  //console.log(headlines);
 
   useEffect(() => {
+    fetchHeadlines();
+  },[headlines]);
+  // console.log(articles);
+
+  const fetchNews = () => {
     axios.get(API_ENDPOINT, {
       headers: {
         'Authorization': 'Bearer' + process.env.REACT_APP_NEWSAPI_KEY
@@ -31,13 +31,11 @@ const TopHeadlines = () => {
     .catch(error => {
       console.log(error.response.status)
     });
-  },[]);
+  };
 
-  if(!headlines) return null;
-
-  // useEffect(() => {
-  //   setArticles(headlines?.articles);
-  // },[headlines]);
+  const fetchHeadlines = () => {
+    setArticles(headlines?.articles);
+  };
 
   // useEffect(() => {
   //   const slicedArticles = articles.slice(0, 5);
@@ -51,16 +49,16 @@ const TopHeadlines = () => {
     <>
       <h1>Top Headlines</h1>
 
-      <div>
+      {/* <div>
         {topFiveArticles?.map((item, i) =>
         (
           <div key={i}>
             <h3>{item}</h3>
           </div>
         ))}
-      </div>
+      </div> */}
 
-      {/* <div>
+      <div>
         <h3>{articles[0].title}</h3>
         <p>{articles[0].source.name}</p>
       </div>
@@ -73,7 +71,7 @@ const TopHeadlines = () => {
       <div>
         <h3>{articles[2].title}</h3>
         <p>{articles[2].source.name}</p>
-      </div> */}
+      </div>
     </>
   );
 };
