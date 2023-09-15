@@ -1,35 +1,51 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import Headline from "./Headline";
 
-const API_ENDPOINT = `https://newsapi.org/v2/top-headlines?category=general&language=en&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`;
+const API_ENDPOINT = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`;
 
 const TopHeadlines = () => {
   const [ headlines, setHeadlines ] = useState({});
   const [ articles, setArticles ] = useState([]);
   const [ topFiveArticles, setTopFiveArticles ] = useState([]);
 
+  // useEffect(() => {
+  //   const fetchHeadline = async () => {
+  //     let response = await fetch(`${API_ENDPOINT}`);
+  //     const data = await response.json();
+  //     console.log(data);
+  //     setHeadlines(data);
+  //   };
+  //   fetchHeadline();
+  // },[]);
+
   useEffect(() => {
-    const fetchHeadline = async () => {
-      let response = await fetch(`${API_ENDPOINT}`);
-      const data = await response.json();
-      console.log(data);
-      setHeadlines(data);
-    };
-  
-    fetchHeadline();
+    axios.get(API_ENDPOINT, {
+      headers: {
+        'Authorization': 'Bearer' + process.env.REACT_APP_NEWSAPI_KEY
+      }
+    })
+    .then((response) => {
+      setHeadlines(response.data);
+    })
+    .catch(error => {
+      console.log(error.response.status)
+    });
   },[]);
 
-  useEffect(() => {
-    setArticles(headlines?.articles);
-  },[headlines]);
+  if(!headlines) return null;
 
-  useEffect(() => {
-    const slicedArticles = articles.slice(0, 5);
-    const result = slicedArticles?.map(a => a.title);
-    setTopFiveArticles(result);
-  },[articles]);
+  // useEffect(() => {
+  //   setArticles(headlines?.articles);
+  // },[headlines]);
 
-  console.log(topFiveArticles);
+  // useEffect(() => {
+  //   const slicedArticles = articles.slice(0, 5);
+  //   const result = slicedArticles?.map(a => a.title);
+  //   setTopFiveArticles(result);
+  // },[articles]);
+
+  // console.log(topFiveArticles);
 
   return (
     <>
