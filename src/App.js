@@ -1,9 +1,11 @@
 import TopHeadlines from "./components/TopHeadlines";
+import TopNews from "./components/TopNews";
 
 function App() {
   return (
     <div>
-      <TopHeadlines />
+      {/* <TopHeadlines /> */}
+      <TopNews />
     </div>
   );
 }
