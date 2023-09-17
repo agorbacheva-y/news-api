@@ -4,8 +4,8 @@ import TopNews from "./components/TopNews";
 function App() {
   return (
     <div>
-      {/* <TopHeadlines /> */}
-      <TopNews />
+      <TopHeadlines />
+      {/* <TopNews /> */}
     </div>
   );
 }
