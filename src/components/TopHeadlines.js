@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Headline from "./Headline";
 
-const API_ENDPOINT = 'https://newsapi.org/v2/top-headlines?language=en';
+const API_ENDPOINT = `https://newsapi.org/v2/top-headlines?language=en&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`;
 
 const TopHeadlines = () => {
   const [ headlines, setHeadlines ] = useState({});
@@ -20,12 +20,15 @@ const TopHeadlines = () => {
   // console.log(articles);
 
   const fetchNews = () => {
-    let config = {'Authorization': process.env.REACT_APP_NEWSAPI_KEY};
+    let config = {'x-api-key': process.env.REACT_APP_NEWSAPI_KEY};
     axios.get(API_ENDPOINT, {
-      headers: {headers: config}
+      headers: {
+        Authorization: config
+      },
     })
     .then((response) => {
       setHeadlines(response.data);
+      //console.log(response.data);
     })
     .catch(error => {
       console.log(error.response.status)
