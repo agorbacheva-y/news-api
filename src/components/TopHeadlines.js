@@ -49,6 +49,8 @@ const TopHeadlines = () => {
         {articles?.map((item, i) => (
           <div key={i}>
             <h3>{item.title}</h3>
+            <p>published on {item.publishedAt}</p>
+            <img src={item.urlToImage} />
           </div>
         ))}
       </div>
