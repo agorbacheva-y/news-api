@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Headline from "./Headline";
 
 const API_ENDPOINT = `https://newsapi.org/v2/top-headlines?language=en&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`;
 
@@ -45,12 +44,14 @@ const TopHeadlines = () => {
     <>
       <h1>Top Headlines</h1>
 
-      <div>
+      <div className="articles__en">
         {articles?.map((item, i) => (
-          <div key={i}>
-            <h3>{item.title}</h3>
-            <p>published on {item.publishedAt}</p>
+          <div key={i} className="article">
             <img src={item.urlToImage} />
+            <div className="article--text">
+              <h3>{item.title}</h3>
+              <p>published on {item.publishedAt}</p>
+            </div>
           </div>
         ))}
       </div>

@@ -1,0 +1,29 @@
+.articles__en {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.article {
+  display: flex;
+}
+
+.article > img {
+  width: 120px;
+  height: 75px;
+}
+
+.article--text {
+  height: 75px;
+  overflow: hidden;
+}
+
+.article--text > h3 {
+  font-size: 11px;
+  align-self: flex-start;
+}
+
+.article--text > p {
+  font-size: 9px;
+  align-self: flex-end;
+}

@@ -1,4 +1,5 @@
 import TopHeadlines from "./components/TopHeadlines";
+import './styles/TopHeadlines.css';
 
 function App() {
   return (
