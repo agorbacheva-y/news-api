@@ -20,22 +20,24 @@ body {
 }
 
 .article > img {
-  width: 120px;
+  min-width: 130px;
   height: 75px;
+  object-fit: cover;
 }
 
 .article--text {
   height: 65px;
   padding: 5px;
   overflow: hidden;
+  position: relative;
 }
 
 .article--text > h3 {
   font-size: 11px;
-  align-self: flex-start;
 }
 
 .article--text > p {
   font-size: 9px;
-  align-self: flex-end;
+  position: absolute;
+  bottom: 5px;
 }
