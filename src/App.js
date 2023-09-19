@@ -1,10 +1,10 @@
-import TopHeadlines from "./components/TopHeadlines";
-import './styles/TopHeadlines.css';
+import UsHeadlines from "./components/UsHeadlines";
+import './styles/UsHeadlines.css';
 
 function App() {
   return (
     <div>
-      <TopHeadlines />
+      <UsHeadlines />
     </div>
   );
 }

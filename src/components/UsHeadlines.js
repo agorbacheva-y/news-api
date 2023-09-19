@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const API_ENDPOINT = `https://newsapi.org/v2/top-headlines?language=en&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`;
+const API_ENDPOINT = `https://newsapi.org/v2/top-headlines?language=en&country=us&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`;
 
-const TopHeadlines = () => {
-  const [ headlines, setHeadlines ] = useState({});
-  const [ articles, setArticles ] = useState([]);
+const UsHeadlines = () => {
+  const [ usHeadlines, setUsHeadlines ] = useState({});
+  const [ usArticles, setUsArticles ] = useState([]);
+
+  const us = "language=en&country=us";
 
   useEffect(() => {
     fetchNews();
@@ -14,19 +16,19 @@ const TopHeadlines = () => {
 
   useEffect(() => {
     fetchHeadlines();
-  },[headlines]);
-  console.log(articles);
+  },[usHeadlines]);
+  console.log(usArticles);
 
   // get data from newsapi
   const fetchNews = () => {
     let config = {'x-api-key': process.env.REACT_APP_NEWSAPI_KEY};
-    axios.get(API_ENDPOINT, {
+    axios.get(`https://newsapi.org/v2/top-headlines?${us}&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`, {
       headers: {
         Authorization: config
       },
     })
     .then((response) => {
-      setHeadlines(response.data);
+      setUsHeadlines(response.data);
       //console.log(response.data);
     })
     .catch(error => {
@@ -36,18 +38,17 @@ const TopHeadlines = () => {
 
   // save only the articles
   const fetchHeadlines = () => {
-    const fiveHeadlines = headlines?.articles?.slice(0, 5);
-    setArticles(fiveHeadlines);
+    const fiveHeadlines = usHeadlines?.articles?.slice(0, 5);
+    setUsArticles(fiveHeadlines);
   };
 
   return (
     <>
-      <h1>Top Headlines</h1>
-
+      <h1>Top US Headlines</h1>
       <div className="articles__en">
-        {articles?.map((item, i) => (
+        {usArticles?.map((item, i) => (
           <div key={i} className="article">
-            <img src={item.urlToImage} />
+            <img src={item.urlToImage} alt="article photo" />
             <div className="article--text">
               <h3>{item.title}</h3>
               <p>published on {item.publishedAt}</p>
@@ -60,4 +61,4 @@ const TopHeadlines = () => {
   );
 };
 
-export default TopHeadlines;
+export default UsHeadlines;
