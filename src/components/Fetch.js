@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import UsHeadlines from "./UsHeadlines";
-import JpHeadlines from "./JpHeadlines";
 
 const API_ENDPOINT = `https://newsapi.org/v2/top-headlines?language=en&country=us&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`;
 
@@ -72,10 +71,9 @@ const Fetch = () => {
   };
 
   return (
-    <>
-      <UsHeadlines usArticles={usArticles} />
-
-      <JpHeadlines jpArticles={jpArticles} />
+    <>    
+      <Link to="/usheadlines">US Headlines</Link>
+      <Link to="/jpheadlines">Japan Headlines</Link>
     </>
   );
 };
