@@ -79,3 +79,5 @@ const Fetch = () => {
 };
 
 export default Fetch;
+
+// useContext to pass props to usheadlines.js and jpheadlines.js
