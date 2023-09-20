@@ -1,10 +1,10 @@
-const UsHeadlines = ({ usArticles }) => {
+const JpHeadlines = ({ jpArticles }) => {
 
   return (
     <>
-      <h1>Top US Headlines</h1>
+      <h1>Top Japan Headlines</h1>
       <div className="articles__en">
-        {usArticles?.map((item, i) => (
+        {jpArticles?.map((item, i) => (
           <div key={i} className="article">
             <img src={item.urlToImage} alt="article photo" />
             <div className="article--text">
@@ -18,4 +18,4 @@ const UsHeadlines = ({ usArticles }) => {
   );
 };
 
-export default UsHeadlines;
+export default JpHeadlines;
