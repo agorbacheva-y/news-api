@@ -4,6 +4,7 @@ import { CounterContext } from "./Fetch";
 const UsHeadlines = () => {
   const { usArticles } = useContext(CounterContext);
 
+  console.log(usArticles);
   return (
     <>
       <h1>Top US Headlines</h1>

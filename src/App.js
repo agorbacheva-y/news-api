@@ -7,10 +7,6 @@ import JpHeadlines from "./components/JpHeadlines";
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <Fetch />
-      </div>
-
       <Routes>
         <Route path="/" element={<Fetch />} />
         <Route path="/usheadlines" element={<UsHeadlines />} />

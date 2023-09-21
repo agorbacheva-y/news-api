@@ -1,6 +1,8 @@
 import { useState, useEffect, createContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import UsHeadlines from "./UsHeadlines";
+import JpHeadlines from "./JpHeadlines";
 
 export const CounterContext = createContext("");
 
@@ -72,8 +74,8 @@ const Fetch = () => {
 
   return (
     <CounterContext.Provider value={{ usArticles, jpArticles }}>    
-      <Link to="/usheadlines">US Headlines</Link>
-      <Link to="/jpheadlines">Japan Headlines</Link>
+      <Link to="/usheadlines"><UsHeadlines /></Link>
+      <Link to="/jpheadlines"><JpHeadlines /></Link>
     </CounterContext.Provider>
   );
 };
