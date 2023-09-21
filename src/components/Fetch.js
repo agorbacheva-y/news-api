@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const API_ENDPOINT = `https://newsapi.org/v2/top-headlines?language=en&country=us&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`;
+export const CounterContext = createContext("");
 
 const Fetch = () => {
   const [ usHeadlines, setUsHeadlines ] = useState({});
@@ -71,10 +71,10 @@ const Fetch = () => {
   };
 
   return (
-    <>    
+    <CounterContext.Provider value={{ usArticles, jpArticles }}>    
       <Link to="/usheadlines">US Headlines</Link>
       <Link to="/jpheadlines">Japan Headlines</Link>
-    </>
+    </CounterContext.Provider>
   );
 };
 

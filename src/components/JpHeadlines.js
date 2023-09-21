@@ -1,4 +1,8 @@
-const JpHeadlines = ({ jpArticles }) => {
+import {useContext} from "react";
+import { CounterContext } from "./Fetch";
+
+const JpHeadlines = () => {
+  const { jpArticles } = useContext(CounterContext);
 
   return (
     <>

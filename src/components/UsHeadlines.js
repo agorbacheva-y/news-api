@@ -1,4 +1,8 @@
-const UsHeadlines = ({ usArticles }) => {
+import {useContext} from "react";
+import { CounterContext } from "./Fetch";
+
+const UsHeadlines = () => {
+  const { usArticles } = useContext(CounterContext);
 
   return (
     <>
