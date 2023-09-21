@@ -1,10 +1,45 @@
-import {useContext} from "react";
-import { CounterContext } from "./Fetch";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const UsHeadlines = () => {
-  const { usArticles } = useContext(CounterContext);
+  const [ usHeadlines, setUsHeadlines ] = useState({});
+  const [ usArticles, setUsArticles ] = useState([]);
 
-  console.log(usArticles);
+  const us = "language=en&country=us";
+
+  useEffect(() => {
+    fetchUsNews();
+  },[]);
+  //console.log(headlines);
+
+  useEffect(() => {
+    fetchUsHeadlines();
+  },[usHeadlines]);
+  //console.log(usArticles);
+
+  // get data from newsapi
+  const fetchUsNews = () => {
+    let config = {'x-api-key': process.env.REACT_APP_NEWSAPI_KEY};
+    axios.get(`https://newsapi.org/v2/top-headlines?${us}&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`, {
+      headers: {
+        Authorization: config
+      },
+    })
+    .then((response) => {
+      setUsHeadlines(response.data);
+      //console.log(response.data);
+    })
+    .catch(error => {
+      console.log(error.response.status)
+    });
+  };
+
+  // save only the articles
+  const fetchUsHeadlines = () => {
+    const fiveHeadlines = usHeadlines?.articles?.slice(0, 5);
+    setUsArticles(fiveHeadlines);
+  };
+
   return (
     <>
       <h1>Top US Headlines</h1>
