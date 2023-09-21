@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import './styles/UsHeadlines.css';
 import Home from "./components/Home";
 import UsHeadlines from "./components/UsHeadlines";
 import JpHeadlines from "./components/JpHeadlines";
+import './styles/UsHeadlines.css';
+import './styles/Home.css';
 
 function App() {
   return (
