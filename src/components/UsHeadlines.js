@@ -10,7 +10,7 @@ const UsHeadlines = () => {
   useEffect(() => {
     fetchUsNews();
   },[]);
-  //console.log(headlines);
+  //console.log(usHeadlines);
 
   useEffect(() => {
     fetchUsHeadlines();
@@ -36,8 +36,8 @@ const UsHeadlines = () => {
 
   // save only the articles
   const fetchUsHeadlines = () => {
-    const fiveHeadlines = usHeadlines?.articles?.slice(0, 5);
-    setUsArticles(fiveHeadlines);
+    const topHeadlines = usHeadlines?.articles?.slice(0, 10);
+    setUsArticles(topHeadlines);
   };
 
   return (

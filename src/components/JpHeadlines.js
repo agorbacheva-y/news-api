@@ -11,7 +11,7 @@ const JpHeadlines = () => {
   useEffect(() => {
     fetchJpNews();
   },[]);
-  //console.log(headlines);
+  //console.log(jpHeadlines);
 
   useEffect(() => {
     fetchJpHeadlines();
@@ -37,8 +37,8 @@ const JpHeadlines = () => {
 
   // save only the articles
   const fetchJpHeadlines = () => {
-    const fiveHeadlines = jpHeadlines?.articles?.slice(0, 5);
-    setJpArticles(fiveHeadlines);
+    const topHeadlines = jpHeadlines?.articles?.slice(0, 10);
+    setJpArticles(topHeadlines);
   };
 
   return (

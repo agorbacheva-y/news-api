@@ -10,12 +10,12 @@ const SeHeadlines = () => {
   useEffect(() => {
     fetchSeNews();
   },[]);
-  //console.log(headlines);
+  //console.log(seHeadlines);
 
   useEffect(() => {
     fetchSeHeadlines();
   },[seHeadlines]);
-  console.log(seArticles);
+  //console.log(seArticles);
 
   // get data from newsapi
   const fetchSeNews = () => {
@@ -36,8 +36,8 @@ const SeHeadlines = () => {
 
   // save only the articles
   const fetchSeHeadlines = () => {
-    const fiveHeadlines = seHeadlines?.articles?.slice(0, 5);
-    setSeArticles(fiveHeadlines);
+    const topHeadlines = seHeadlines?.articles?.slice(0, 10);
+    setSeArticles(topHeadlines);
   };
 
   return (
