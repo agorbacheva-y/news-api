@@ -15,7 +15,7 @@ const UsHeadlines = () => {
   useEffect(() => {
     fetchUsHeadlines();
   },[usHeadlines]);
-  //console.log(usArticles);
+  console.log(usArticles);
 
   // get data from newsapi
   const fetchUsNews = () => {
@@ -47,10 +47,13 @@ const UsHeadlines = () => {
         {usArticles?.map((item, i) => (
           <div key={i} className="article">
             <img src={item.urlToImage} alt="article photo" />
-            <div className="article--text">
-              <h3>{item.title}</h3>
-              <p>published on {item.publishedAt}</p>
-            </div>
+            <a href={item.url} target="blank">
+              <div className="article--text">
+                <h3>{item.title}</h3>
+                <p>published on {item.publishedAt}</p>
+              </div>
+            </a>
+            
           </div>
         ))}
       </div>

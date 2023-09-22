@@ -25,6 +25,15 @@ body {
   object-fit: cover;
 }
 
+.article > a {
+  text-decoration: none;
+  color: black;
+}
+
+.article > a:visited {
+  color: purple;
+}
+
 .article--text {
   height: 65px;
   padding: 5px;
