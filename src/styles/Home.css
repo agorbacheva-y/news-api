@@ -4,3 +4,8 @@
   margin: 10px;
   gap: 10px;
 }
+
+.header {
+  float: right;
+  padding: 10px;
+}
