@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Paper from "@mui/material/Paper";
 import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
+import TabList from '@mui/lab/TabList';
 import TabContext from '@mui/lab/TabContext';
 import TabPanel from '@mui/lab/TabPanel';
 import UsHeadlines from "./UsHeadlines";
 import JpHeadlines from "./JpHeadlines";
 import SeHeadlines from "./SeHeadlines";
+
 const Home = () => {
   const [ value, setValue ] = useState("1");
 
@@ -16,17 +17,17 @@ const Home = () => {
       <div>
         <TabContext value={value}>
           <Paper square>
-            <Tabs
+            <TabList
               textColor="primary"
               indicatorColor="primary"
               onChange={(event, newValue) => {
                 setValue(newValue);
               }}
             >
-              <Tab label="Tab One" value="1"/>
-              <Tab label="Tab Two" value="2"/>
-              <Tab label="Tab Three" value="3"/>
-            </Tabs>
+              <Tab label="US" value="1"/>
+              <Tab label="Japan" value="2"/>
+              <Tab label="Sweden" value="3"/>
+            </TabList>
           </Paper>
           <TabPanel value="1">
               <UsHeadlines />

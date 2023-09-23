@@ -15,7 +15,7 @@ const UsHeadlines = () => {
   useEffect(() => {
     fetchUsHeadlines();
   },[usHeadlines]);
-  console.log(usArticles);
+  //console.log(usArticles);
 
   // get data from newsapi
   const fetchUsNews = () => {
