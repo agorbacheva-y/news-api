@@ -46,7 +46,6 @@ const SeHeadlines = () => {
       <div className="articles__en">
         {seArticles?.map((item, i) => (
           <div key={i} className="article">
-            <img src={item.urlToImage} alt="article photo" />
             <div className="article--text">
               <h3>{item.title}</h3>
               <p>published on {item.publishedAt}</p>
