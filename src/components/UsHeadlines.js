@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const UsHeadlines = () => {
   const [ usHeadlines, setUsHeadlines ] = useState({});
   const [ usArticles, setUsArticles ] = useState([]);
+
+  const navigate = useNavigate();
 
   const us = "language=en&country=us";
 
@@ -45,14 +48,14 @@ const UsHeadlines = () => {
       <h1>Top US Headlines</h1>
       <div className="articles__en">
         {usArticles?.map((item, i) => (
-          <div key={i} className="article">
+          <div key={i} className="article" onClick={() => navigate("/article", { state: usArticles })} >
             <img src={item.urlToImage} alt="article photo" />
-            <a href={item.url} target="blank">
+            {/* <a href={item.url} target="blank"> */}
               <div className="article--text">
                 <h3>{item.title}</h3>
                 <p>published on {item.publishedAt}</p>
               </div>
-            </a>
+            {/* </a> */}
             
           </div>
         ))}

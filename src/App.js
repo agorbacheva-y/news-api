@@ -5,6 +5,7 @@ import './styles/Home.css';
 import UsHeadlines from "./components/UsHeadlines";
 import JpHeadlines from "./components/JpHeadlines";
 import SeHeadlines from "./components/SeHeadlines";
+import Article from "./components/Article";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/usheadlines" element={<UsHeadlines />} />
         <Route path="/jpheadlines" element={<JpHeadlines />} />
         <Route path="/seheadlines" element={<SeHeadlines />} />
+        <Route path="/article" element={<Article />} />
       </Routes>
     </BrowserRouter>
   );
