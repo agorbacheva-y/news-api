@@ -7,8 +7,8 @@ import TabContext from '@mui/lab/TabContext';
 function Article() {
   const location = useLocation();
 
-  const title = location.state.usArticles;
-  console.log(usArticles);
+  const title = location.state.usArticles.title;
+  const url = location.state.usArticles.url;
 
 
   return (
