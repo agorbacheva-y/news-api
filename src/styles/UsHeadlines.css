@@ -50,3 +50,16 @@ body {
   position: absolute;
   bottom: 5px;
 }
+
+.article__header {
+  padding: 10px;
+  background-color: white;
+}
+
+.article__back {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}

@@ -1,6 +1,6 @@
 //import { Link } from "react-router-dom";
 import { useState } from "react";
-import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabList from '@mui/lab/TabList';
 import TabContext from '@mui/lab/TabContext';
@@ -16,7 +16,7 @@ const Home = () => {
     <>
       <div>
         <TabContext value={value}>
-          <Paper square>
+          <Box>
             <TabList
               textColor="primary"
               indicatorColor="primary"
@@ -28,7 +28,7 @@ const Home = () => {
               <Tab label="Japan" value="2"/>
               <Tab label="Sweden" value="3"/>
             </TabList>
-          </Paper>
+          </Box>
           <TabPanel value="1">
               <UsHeadlines />
           </TabPanel>

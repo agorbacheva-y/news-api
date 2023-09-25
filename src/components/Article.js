@@ -1,34 +1,29 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from "react";
-import Paper from "@mui/material/Paper";
-import Tab from "@mui/material/Tab";
-import TabList from '@mui/lab/TabList';
-import TabContext from '@mui/lab/TabContext';
+import Box from "@mui/material/Box";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 function Article() {
-  const [ value, setValue ] = useState("1"); // change to 2 after fix url link
-
   const navigate = useNavigate();
   const location = useLocation();
 
   // const title = location.state.usArticles.title;
-  // const url = location.state.usArticles.url;
-
 
   return (
     <div>
-      <TabContext value={value} >
-        <Paper square>
-          <TabList
-            textColor="primary"
-            indicatorColor="primary"
+      <Box>
+        <header className='article__header'>
+          <button 
+            type='button'
+            className='article__back'
+            onClick={() => navigate(-1) }
           >
-            <Tab label="Back" value="1" onClick={() => navigate(-1) } />
-            {/* <Tab label={title} value="2" /> */}
-          </TabList>
-        </Paper>
-      </TabContext>
-      {/* {url} */}
+            <ArrowBackIosIcon/>
+            <h3>Back</h3>
+          </button>
+          
+        </header>
+      </Box>
     </div>
   );
 };
