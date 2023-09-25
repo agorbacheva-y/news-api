@@ -3,11 +3,12 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
-function Article() {
+function Article({children}) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // const title = location.state.usArticles.title;
+  const articles = location.state;
+  console.log(articles);
 
   return (
     <div>
@@ -21,8 +22,8 @@ function Article() {
             <ArrowBackIosIcon/>
             <h3>Back</h3>
           </button>
-          
         </header>
+        {children}
       </Box>
     </div>
   );

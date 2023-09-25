@@ -43,20 +43,22 @@ const UsHeadlines = () => {
     setUsArticles(topHeadlines);
   };
 
+  const handleClick = () => {
+    navigate("/article", { state: usArticles });
+  }
+
   return (
     <>
       <h1>Top US Headlines</h1>
       <div className="articles__en">
         {usArticles?.map((item, i) => (
-          <div key={i} className="article" onClick={() => navigate("/article", { state: usArticles })} >
+          <div key={i} className="article" onClick={handleClick} >
             <img src={item.urlToImage} alt="article photo" />
-            {/* <a href={item.url} target="blank"> */}
-              <div className="article--text">
-                <h3>{item.title}</h3>
-                <p>published on {item.publishedAt}</p>
-              </div>
-            {/* </a> */}
-            
+            <div className="article--text">
+              <h3>{item.title}</h3>
+              <p>published on {item.publishedAt}</p>
+            </div> 
+              
           </div>
         ))}
       </div>
