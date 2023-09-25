@@ -8,7 +8,7 @@ function Article({children}) {
   const location = useLocation();
 
   const articles = location.state;
-  console.log(articles);
+  console.log(articles[0].url);
 
   return (
     <div>
@@ -23,10 +23,12 @@ function Article({children}) {
             <h3>Back</h3>
           </button>
         </header>
-        {children}
+        <ifrmae src={articles[0]?.url}></ifrmae>
       </Box>
     </div>
   );
 };
 
 export default Article;
+
+// how to render article external link inside iframe...
