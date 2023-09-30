@@ -58,7 +58,6 @@ const UsHeadlines = () => {
               <h3>{item.title}</h3>
               <p>published on {item.publishedAt}</p>
             </div> 
-            <iframe src={item.url}></iframe>  
           </div>
         ))}
       </div>

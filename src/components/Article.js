@@ -1,5 +1,4 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useState } from "react";
 import Box from "@mui/material/Box";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
@@ -34,5 +33,3 @@ function Article({children}) {
 };
 
 export default Article;
-
-// how to render article external link inside iframe...
