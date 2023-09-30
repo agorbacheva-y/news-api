@@ -63,3 +63,8 @@ body {
   border: none;
   background-color: transparent;
 }
+
+.iframe {
+  width: 80%;
+  height: 80vh;
+}

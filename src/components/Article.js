@@ -8,7 +8,10 @@ function Article({children}) {
   const location = useLocation();
 
   const articles = location.state;
-  console.log(articles[0].url);
+  //console.log(articles[0].url);
+
+  let articleIndex = localStorage.getItem("article index");
+  //console.log(articleIndex);
 
   return (
     <div>
@@ -23,7 +26,8 @@ function Article({children}) {
             <h3>Back</h3>
           </button>
         </header>
-        <ifrmae src={articles[0]?.url}></ifrmae>
+        <iframe src={articles[articleIndex].url} className='iframe'></iframe>
+        {children}
       </Box>
     </div>
   );

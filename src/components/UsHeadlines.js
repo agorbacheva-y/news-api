@@ -43,22 +43,22 @@ const UsHeadlines = () => {
     setUsArticles(topHeadlines);
   };
 
-  const handleClick = () => {
+  const handleClick = (i) => {
     navigate("/article", { state: usArticles });
   }
 
   return (
     <>
       <h1>Top US Headlines</h1>
-      <div className="articles__en">
+      <div className="articles__en" onClick={handleClick}>
         {usArticles?.map((item, i) => (
-          <div key={i} className="article" onClick={handleClick} >
+          <div key={i} className="article" onClick={() => localStorage.setItem("article index", i)} >
             <img src={item.urlToImage} alt="article photo" />
             <div className="article--text">
               <h3>{item.title}</h3>
               <p>published on {item.publishedAt}</p>
             </div> 
-              
+            <iframe src={item.url}></iframe>  
           </div>
         ))}
       </div>
