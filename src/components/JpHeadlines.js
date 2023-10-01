@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 
 const JpHeadlines = () => {
   const [ jpHeadlines, setJpHeadlines ] = useState({});
   const [ jpArticles, setJpArticles ] = useState([]);
+
+  const navigate = useNavigate();
 
   const jp = "language=jp&country=jp";
 
@@ -41,12 +43,16 @@ const JpHeadlines = () => {
     setJpArticles(topHeadlines);
   };
 
+  const handleClick = (i) => {
+    navigate("/article", { state: jpArticles });
+  }
+
   return (
     <>
       <h1>Top Japan Headlines</h1>
-      <div className="articles__en">
+      <div className="articles__en" onClick={handleClick}>
         {jpArticles?.map((item, i) => (
-          <div key={i} className="article">
+          <div key={i} className="article" onClick={() => localStorage.setItem("article index", i)}>
             <img src={item.urlToImage} alt="article photo" />
             <div className="article--text">
               <h3>{item.title}</h3>
