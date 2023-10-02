@@ -6,18 +6,19 @@ import UsHeadlines from "./components/UsHeadlines";
 import JpHeadlines from "./components/JpHeadlines";
 import SeHeadlines from "./components/SeHeadlines";
 import Article from "./components/Article";
-import Header from "./components/Header";
+import Layout from "./components/Layout";
 
 function App() {
   console.log(window.location.pathname)
   return (
     <BrowserRouter>
-      <Header className={ window.location.pathname === "/article" ? "hidden" : null }/>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/usheadlines" element={<UsHeadlines />} />
-        <Route path="/jpheadlines" element={<JpHeadlines />} />
-        <Route path="/seheadlines" element={<SeHeadlines />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/usheadlines" element={<UsHeadlines />} />
+          <Route path="/jpheadlines" element={<JpHeadlines />} />
+          <Route path="/seheadlines" element={<SeHeadlines />} />
+        </Route>
         <Route path="/article" element={<Article />} />
       </Routes>
     </BrowserRouter>
