@@ -9,9 +9,10 @@ import Article from "./components/Article";
 import Header from "./components/Header";
 
 function App() {
+  console.log(window.location.pathname)
   return (
     <BrowserRouter>
-      <Header />
+      <Header className={ window.location.pathname === "/article" ? "hidden" : null }/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/usheadlines" element={<UsHeadlines />} />
