@@ -1,8 +1,7 @@
 .headline--link {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   margin: 10px;
-  gap: 10px;
 }
 
 .header {

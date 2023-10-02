@@ -1,4 +1,4 @@
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
@@ -14,7 +14,8 @@ const Home = () => {
 
   return (
     <>
-      <div>
+      <UsHeadlines />
+      {/* <div>
         <TabContext value={value}>
           <Box>
             <TabList
@@ -38,9 +39,9 @@ const Home = () => {
           <TabPanel value="3">
               <SeHeadlines />
           </TabPanel>
-        </TabContext>
+        </TabContext> 
         
-      </div>
+      </div>*/}
       {/* <div className="headline--link">    
         <Link to="/usheadlines" style={{textDecoration: 'none', color: 'black'}}>
           <h3>Top US Headlines</h3>

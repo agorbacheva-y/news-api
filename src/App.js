@@ -6,10 +6,12 @@ import UsHeadlines from "./components/UsHeadlines";
 import JpHeadlines from "./components/JpHeadlines";
 import SeHeadlines from "./components/SeHeadlines";
 import Article from "./components/Article";
+import Header from "./components/Header";
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/usheadlines" element={<UsHeadlines />} />
